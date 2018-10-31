@@ -1,12 +1,11 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 require('dotenv').config();
 
 var port = process.env.PORT || 3000;
 
-app.get('/', function(req, res){
-  res.send('<h1>Hello world</h1>');
-});
+app.use(express.static('build'));
 
 
 http.listen(port, function(){
