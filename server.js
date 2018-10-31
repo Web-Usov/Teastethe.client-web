@@ -1,15 +1,14 @@
-var express = require('express');
-var http = require('http');
+var app = require('express')();
+var http = require('http').Server(app);
 require('dotenv').config();
 
-var app = express();
 var port = process.env.PORT || 3000;
 
-app.use(express.static('build'));
+app.get('/', function(req, res){
+  res.send('<h1>Hello world</h1>');
+});
 
 
-var server = http.Server(app);
-
-server.listen(port, function(){
-  console.log('[INFO] Listening on *:' + port);
+http.listen(port, function(){
+  console.log('listening on *:'+port);
 });
