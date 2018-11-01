@@ -18,9 +18,13 @@ class App extends Component {
     
   }
   componentWillMount(){
-    const {user} = this.props
-    console.log(user.socket.connected);
+    const {user,setSocket} = this.props
+    console.log(user.socket.isConnected);
     
+    user.socket.on('connect',() => {
+      user.socket.isConnected = true
+      setSocket(user.socket)
+    })
     user.socket.on('disconnect', (reason) => {
       if (reason === 'io server disconnect') {
         user.socket.connect();
@@ -30,7 +34,7 @@ class App extends Component {
   }
   componentDidMount(){
     const {user} = this.props
-    console.log(user.socket.connected);
+    console.log(user.socket.isConnected);
 
   }
   render() {
