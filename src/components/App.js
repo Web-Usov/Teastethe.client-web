@@ -17,6 +17,22 @@ class App extends Component {
     
     
   }
+  componentWillMount(){
+    const {user} = this.props
+    console.log(user.socket.connected);
+    
+    user.socket.on('disconnect', (reason) => {
+      if (reason === 'io server disconnect') {
+        user.socket.connect();
+      }
+    });
+
+  }
+  componentDidMount(){
+    const {user} = this.props
+    console.log(user.socket.connected);
+
+  }
   render() {
     
     const {login,user} = this.props
