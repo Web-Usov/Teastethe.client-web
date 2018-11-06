@@ -1,25 +1,21 @@
 import {teasConst} from '../const'
 
 const defaultState = {
-    list:{},
-    listId:[]
+    list:[],
 }
 
 export default (state = defaultState, action ={}) => {
     switch(action.type){
         case teasConst.SET_LIST:{
             const result = {
-                list:action.payload.teas,
-                listId:action.payload.teasId
+                list:action.payload,
             }        
             return result
         }
         case teasConst.ADD_ITEM:{
             const result = {
-                list:Object.assign({},state.list),
-                listId:[...state.listId,action.payload.id]
+                list:[...state.list,action.payload]
             }
-            result.list[action.payload.id] = action.payload
             return result
         }
         default: return state

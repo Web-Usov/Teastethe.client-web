@@ -19,7 +19,6 @@ class App extends Component {
   }
   componentWillMount(){
     const {user} = this.props
-    console.log(this.state.connected)
     
     user.socket.on('connect',() => {
       this.setState({connected:true})
@@ -32,8 +31,6 @@ class App extends Component {
 
   }
   componentDidMount(){
-    console.log(this.state.connected)
-
   }
   render() {
     

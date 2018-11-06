@@ -1,9 +1,9 @@
 import {teasConst} from '../const'
 
-export const setList = (data) => (
+export const setList = (teas) => (
     {
         type:teasConst.SET_LIST,
-        payload:data
+        payload:teas
     }
 )
 export const addTea = (tea) =>(

@@ -11,11 +11,10 @@ class TeasList extends Component {
     }
     componentWillMount(){
         const {user,setList,addTea} = this.props
-        user.socket.on('resAllTeas',(data) =>{
-            setList({
-                teas:data.teas,
-                teasId:data.teasId
-            })
+        user.socket.on('allTeas',(data) =>{
+            if(data.error) return alert(data.error)
+                
+            setList(data.teas)
         })
         user.socket.on('addTea',(data) => {
             const {error,tea,isYourTea} = data
@@ -26,17 +25,18 @@ class TeasList extends Component {
                 addTea(tea)
             }
         })
-        user.socket.emit('reqAllTeas')
+        user.socket.emit('allTeas')
     }
     render() { 
         const {user,teas,addTea} = this.props
+        
         return ( 
             <div>                       
                 <ul>
-                    {teas.listId.map((teaId,i) => (
-                    <li key={i}>
-                        {JSON.stringify(teas.list[teaId])}
-                    </li>
+                    {teas.list.map((tea,i) => (
+                        <li key={i}>
+                            {JSON.stringify(tea)}
+                        </li>
                     ))}
                 </ul>
                 <TeasAdd addTea={addTea} user={user}/>
