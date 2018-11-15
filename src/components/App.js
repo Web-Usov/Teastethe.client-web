@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import socket from 'socket'
 import './App.css';
-import {TeasList, Login } from 'components'
+import Routers from 'routers'
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux'
 import { userActions } from 'redux-config/actions'
+import { BrowserRouter, Route } from 'react-router-dom';
+import {Login} from 'components'
 
 
 class App extends Component {
@@ -33,29 +35,11 @@ class App extends Component {
   componentDidMount(){
   }
   render() {
-    
-    const {login,user} = this.props
-    
-    if(user.auth){
-
-      return (
-        <div className="App">
-          <header>
-            <h1>Welcome, {user.name}!</h1>
-          </header>   
-          <TeasList user={user}/>
-        </div>
-      )
-
-    }else{
-
-      return (
-        <div className="App">       
-          <Login login={login} user={user}/>
-        </div>        
-      )
-
-    }
+    return (
+      <BrowserRouter>
+        <Routers/>      
+      </BrowserRouter>
+    )
   }
 }
 
