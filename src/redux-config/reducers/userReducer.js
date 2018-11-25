@@ -17,8 +17,18 @@ export default (state = defaultState, action = {}) => {
                     name:action.payload.name,
                     auth:true
                 }
-            )
-            // console.log(result)    
+            )  
+            return result
+        }
+        case userConst.LOGOUT:{
+            const result = Object.assign(
+                {},
+                state,
+                {
+                    name:'',
+                    auth:false
+                }
+            )  
             return result
         }
         case userConst.SET_SOCKET:{

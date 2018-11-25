@@ -1,12 +1,15 @@
-import Login from './login'
+import Auth from './auth'
 import TeasList from './teasList'
 import TeasAdd from './teasAdd'
 import App from './App'
-import Nav from './nav'
+import AppBar from './appBar'
+import withRoot from './withRoot'
+
 export {
-    Login, 
+    withRoot,
+    Auth, 
     TeasList,
     TeasAdd,
     App,
-    Nav
+    AppBar
 }
