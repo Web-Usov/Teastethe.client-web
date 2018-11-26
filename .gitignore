@@ -61,6 +61,5 @@ typings/
 # next.js build output
 .next
 
-# Config
 src/config.js
 src/config.example.js
