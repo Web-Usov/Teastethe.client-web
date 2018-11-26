@@ -1,6 +1,6 @@
 {
   "name": "client-web",
-  "version": "0.2.0-dev",
+  "version": "0.2.0-beta",
   "dependencies": {
     "@material-ui/core": "^3.5.1",
     "@material-ui/icons": "^3.0.1",
