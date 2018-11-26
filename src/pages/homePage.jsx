@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import {TeasList, AppBar} from 'components'
+import {TeasList, AppBar,Head} from 'components'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
 
 class HomePage extends Component {
 
@@ -15,6 +14,7 @@ class HomePage extends Component {
     else
     return (
       <Fragment>
+          <Head/>
           <AppBar title={"Welcome, " + user.name +"!"}/>
           <TeasList user={user}/>
       </Fragment>
