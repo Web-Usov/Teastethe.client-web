@@ -8,7 +8,7 @@ import LockIcon from '@material-ui/icons/LockOutlined';
 
 const styles = theme => ({
     paper: {
-        width: 400,
+        maxWidth: 400,
         marginLeft: 'auto',
         marginRight: 'auto',
         //marginTop: theme.spacing.unit * 8,

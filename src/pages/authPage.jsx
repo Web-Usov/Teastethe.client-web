@@ -5,10 +5,15 @@ import { bindActionCreators } from 'redux'
 import { userActions } from 'redux-config/actions'
 import { Auth, AppBar, Head } from 'components'
 import { withStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core/';
 
 const styles = theme => ({
 	main:{
 		backgroundColor: theme.palette.primary.light,
+	},
+	grid:{
+		width:"100%",
+		margin:0,
 	}
 })
 
@@ -57,9 +62,11 @@ class AuthPage extends Component {
 			<Fragment>	
 				<Head subTitle={type}/>			
 				<AppBar title={"Auth page"}/>				
-				<main className={classes.main}>
-					<Auth user={user} type={type}/>				
-				</main>
+				<Grid container  className={classes.grid} spacing={16} justify="center">
+						<Grid item  xs={12}>					
+							<Auth user={user} type={type}/>						
+						</Grid>
+					</Grid>
 			</Fragment>
 		)
 	}
