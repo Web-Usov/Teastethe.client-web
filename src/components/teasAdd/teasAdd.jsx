@@ -9,19 +9,22 @@ class TeasAdd extends Component {
     componentWillMount(){
         
         const {user,addTea} = this.props
+        
         user.socket.on('addTea',(data)=>{
             const {error,tea,isYourTea} = data
             this.setState({loading:false})
-            if(isYourTea){
-                this.setState({loading:false})
-                if(error){
-                    return alert(error)                
-                }
-                alert("Tea successfully added")
-                addTea(tea)
-            }              
+            if(error) return alert(error)
+            alert("Tea successfully added")
+            addTea(tea)
         })
 
+    }
+    componentWillUnmount(){
+        this.setState({loading:false})
+    }
+    componentWillUnmount(){
+        const {user} = this.props
+        user.socket.off('addTea')
     }
     handleSubmit(e){
         e.preventDefault()

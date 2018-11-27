@@ -1,8 +1,10 @@
 import userReducer from './userReducer'
-import teasReducers from './teasReducer'
+import teasReducer from './teasReducer'
+import headReducer from './headReducer'
 import {combineReducers} from 'redux'
 
 export default combineReducers({
     user:userReducer,
-    teas:teasReducers
+    teas:teasReducer,
+    head:headReducer
 })

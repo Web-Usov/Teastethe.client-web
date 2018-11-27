@@ -5,5 +5,4 @@ const socket = io(SERVER,{
     autoConnect:false
 })
 
-
 export default socket

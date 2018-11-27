@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { userActions } from 'redux-config/actions'
-import { Auth, AppBar } from 'components'
+import { Auth, AppBar, Head } from 'components'
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -54,7 +54,8 @@ class AuthPage extends Component {
 		if (user.auth) return <Redirect to='/' />
 
 		return (
-			<Fragment>				
+			<Fragment>	
+				<Head subTitle={type}/>			
 				<AppBar title={"Auth page"}/>				
 				<main className={classes.main}>
 					<Auth user={user} type={type}/>				
