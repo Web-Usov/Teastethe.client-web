@@ -1,13 +1,15 @@
-var express = require('express');
-var app = express();
-var server = require('http').Server(app);
+const express = require('express');
+const path = require('path');
+const app = express();
 require('dotenv').config();
+const port = process.env.PORT || 8080;
 
-var port = process.env.PORT || 8080;
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.use(express.static('build'));
+app.get('/*', (req,res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
-
-server.listen(port, function(){
+app.listen(port, function(){
   console.log('listening on *:'+port);
 });

@@ -71,6 +71,11 @@ class Auth extends Component {
         })
 
     }
+    componentWillUnmount(){
+        const {user} = this.props
+        user.socket.off('register')
+        user.socket.off('login')
+    }
     handleSubmit(e) {
         e.preventDefault()
         this.setState({ loading: true })

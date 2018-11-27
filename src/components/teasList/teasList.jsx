@@ -16,16 +16,17 @@ class TeasList extends Component {
                 
             setList(data.teas)
         })
-        user.socket.on('addTea',(data) => {
+        user.socket.on('addTea.b',(data) => {
             const {error,tea,isYourTea} = data
-            if(!isYourTea){
-                if(error){
-                    return alert(error)
-                }                
-                addTea(tea)
-            }
+            if(error) return alert(error)                
+            addTea(tea)
         })
         user.socket.emit('allTeas')
+    }
+    componentWillUnmount(){
+        const {user} = this.props
+        user.socket.off('allTeas')
+        user.socket.off('addTea.b')
     }
     render() { 
         const {user,teas,addTea} = this.props

@@ -56,9 +56,12 @@ class App extends Component {
 		// const { user } = this.props		
 		// user.socket.emit('getUser')
 	}
-	componentDidMount() {
-
-	}
+    componentWillUnmount(){
+        const {user} = this.props
+        user.socket.off('logout')
+        user.socket.off('disconnect')
+        user.socket.off('getUser')
+    }
 	render() {
 		return (
 			<BrowserRouter>
