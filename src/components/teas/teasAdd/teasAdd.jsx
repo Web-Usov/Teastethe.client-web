@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { teasActions } from "redux-config/actions";
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+});
+
 class TeasAdd extends Component {
     constructor(props){
         super(props)
@@ -11,7 +19,7 @@ class TeasAdd extends Component {
         const {user,addTea} = this.props
         
         user.socket.on('addTea',(data)=>{
-            const {error,tea,isYourTea} = data
+            const {error,tea} = data
             this.setState({loading:false})
             if(error) return alert(error)
             alert("Tea successfully added")
@@ -54,4 +62,8 @@ class TeasAdd extends Component {
     }
 }
  
-export default TeasAdd;
+export default withStyles(styles)(connect(
+    state => ({
+    }),
+    dispatch => bindActionCreators(teasActions, dispatch)
+)(TeasAdd))

@@ -29,7 +29,6 @@ class App extends Component {
 			console.log('Good connect to server');			
 			user.socket.open()			
 			user.socket.emit('getUser')
-			this.setState({loading:false})
 		}).catch(err => {
 			console.error('Bad connect to server',err);
 		})

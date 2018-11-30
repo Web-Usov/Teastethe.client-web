@@ -11,11 +11,11 @@ const styles = theme => ({
         maxWidth: 400,
         marginLeft: 'auto',
         marginRight: 'auto',
-        //marginTop: theme.spacing.unit * 8,
+        marginTop: theme.spacing.unit * 10,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        padding: theme.spacing.unit * 3,
+        padding: theme.spacing.unit * 4,
     },
     paperTitle: {
         fontSize: 20,

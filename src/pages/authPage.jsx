@@ -63,10 +63,10 @@ class AuthPage extends Component {
 				<Head subTitle={type}/>			
 				<AppBar title={"Auth page"}/>				
 				<Grid container  className={classes.grid} spacing={16} justify="center">
-						<Grid item  xs={12}>					
-							<Auth user={user} type={type}/>						
-						</Grid>
+					<Grid item  xs={12}>					
+						<Auth user={user} type={type}/>						
 					</Grid>
+				</Grid>
 			</Fragment>
 		)
 	}
